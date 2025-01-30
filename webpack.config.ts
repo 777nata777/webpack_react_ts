@@ -39,7 +39,10 @@ export default (env: EnvVariables) => {
             new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }), //подставляет скрипты в нашу html. для генерации HTML-файла
             new webpack.ProgressPlugin(), // при build видим процент загрузки, медленный
             new ReactRefreshWebpackPlugin(),
-            new MiniCssExtractPlugin()
+            new MiniCssExtractPlugin({
+                filename: 'css/[name].[contenthash:8].css',
+                chunkFilename: 'css/[name].[contenthash:8].css'
+            })
         ],
 
         module: {
